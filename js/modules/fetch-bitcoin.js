@@ -1,8 +1,8 @@
-export default function iniFetchBitcoin() {
-  const API = 'https://blockchain.info/ticker'
-  const btcPreco = document.querySelector('.btc-preco')
+export default function FetchBitcoin(url, target) {
+  //const API = 'https://blockchain.info/ticker'
+  const btcPreco = document.querySelector(target) //'.btc-preco'
 
-  fetch(API)
+  fetch(url)
     .then((response) => response.json())
     .then((bitcoin) => {
       btcPreco.innerText = (1000 / bitcoin.BRL.sell).toFixed(4)
