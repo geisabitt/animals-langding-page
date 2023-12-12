@@ -1,4 +1,4 @@
-import initAccordion from './modules/accordion.js'
+import Accordion from './modules/accordion.js'
 import initAnimaScroll from './modules/anima-scroll.js'
 import initDropdown from './modules/dropdown-menu.js'
 import iniFetchAnimais from './modules/fetch-animais.js'
@@ -12,9 +12,10 @@ import initTooltip from './modules/tooltip.js'
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]')
 scrollSuave.init()
+const accordion = new Accordion('[data-anime="accordion"] dt')
+accordion.init()
 
 initTabNav()
-initAccordion()
 initModal()
 initTooltip()
 initDropdown()

@@ -1,22 +1,25 @@
-export default function initAccordion() {
-  const accordionList = document.querySelectorAll('[data-anime="accordion"] dt')
+export default class Accordion {
+  constructor(list) {
+    this.accordionList = document.querySelectorAll(list)
+    this.activeClass = 'ativo'
+  }
 
-  //como boa pratica armazenar o nome da classe em uma contante
-  //caso seja necessário mudar o nome mais pra frente modificar
-  //apenas em um lugar
-  const activeClass = 'ativo'
-  if (accordionList.length) {
-    accordionList[0].classList.add(activeClass)
-    accordionList[0].nextElementSibling.classList.add(activeClass)
-
-    function activeAccordion() {
-      this.classList.toggle(activeClass)
-      this.nextElementSibling.classList.toggle(activeClass)
-    }
-
-    //criando um evento para cada item da lista com forEach
-    accordionList.forEach((item) => {
-      item.addEventListener('click', activeAccordion)
+  toggleAccordion(item) {
+    item.classList.toggle(this.activeClass)
+    item.nextElementSibling.classList.toggle(this.activeClass)
+  }
+  // adiciona os eventos ao accordion
+  addAccordionEvent() {
+    this.accordionList.forEach((item) => {
+      item.addEventListener('click', () => this.toggleAccordion(item))
     })
+  }
+  //iniciar função
+  init() {
+    if (accordionList.length) {
+      // ativar primeiro item
+      this.toggleAccordion(this.accordionList[0])
+      this.addAccordionEvent()
+    }
   }
 }
