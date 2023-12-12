@@ -1,45 +1,35 @@
 import AnimaNumeros from './anima-numeros.js'
 
-export default function iniFetchAnimais() {
-  // não precisa colocar o local da pasta apenas o nome do json
-  // ERRADO const API = "../../animais.json";
-  //contante para armazenar a api
-  const API = './animais.json'
-  // seleciona o elemento html onde vamos renderizar os dados da api
-  const numerosGrid = document.querySelector('.numeros-grid')
+export default function fetchAnimais(url, target) {
+  function createAnimal(animal) {
+    const div = document.createElement('div')
+    div.classList.add('numero-animal')
+    div.innerHTML = `<h3>${animal.specie}</h3><span data-numero>${animal.total}</span>`
+    return div
+  }
 
-  // função que busca os animeis na api
-  async function fetchAnimais() {
+  const numerosGrid = document.querySelector(target)
+
+  function preencherAnimais(animal) {
+    const divAnimal = createAnimal(animal)
+    numerosGrid.appendChild(divAnimal)
+  }
+
+  function animaAnimaisNumeros() {
+    const animaNumeros = new AnimaNumeros('[data-numero]', '.numeros', 'ativo')
+    animaNumeros.init()
+  }
+
+  async function criarAnimais() {
     try {
-      // faz a requisição para api
-      const animaisResponse = await fetch(API)
-      // armazena os dados retornados na api
+      const animaisResponse = await fetch(url)
       const animaisJSON = await animaisResponse.json()
-
-      //loop por cada objeto do arrai de animais
-      animaisJSON.forEach((animal) => {
-        //chamando a função de criação do elemento html que armazena os animeis buscados na api
-        const divAnimal = createAnimal(animal)
-        // renderizando no html as div dos animais como filhos do elemento numeros-grid
-        numerosGrid.appendChild(divAnimal)
-      })
-      // executa a animação dos numeros
-      const animaNumeros = new AnimaNumeros('[data-numero]', '.numeros', 'ativo')
-      animaNumeros.init()
-    } catch (error) {
-      console.log(error)
-      numerosGrid.innerText = `Erro ao carregar animais`
-    }
-
-    function createAnimal(animal) {
-      //criando a div e...
-      const div = document.createElement('div')
-      //... adicionando classe
-      div.classList.add('numero-animal')
-      // escrevendo os dados retornados da arrai dentro dos seus respectivos elementos com template sring
-      div.innerHTML = `<h3>${animal.specie}</h3><span data-numero>${animal.total}</span>`
-      return div
+      animaisJSON.forEach((animal) => preencherAnimais(animal))
+      animaAnimaisNumeros()
+    } catch (erro) {
+      console.log(erro)
     }
   }
-  fetchAnimais()
+
+  return criarAnimais()
 }
