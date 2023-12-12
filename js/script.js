@@ -1,7 +1,7 @@
 import Accordion from './modules/accordion.js'
 import initAnimaScroll from './modules/anima-scroll.js'
 import initDropdown from './modules/dropdown-menu.js'
-import iniFetchAnimais from './modules/fetch-animais.js'
+import fetchAnimais from './modules/fetch-animais.js'
 import iniFetchBitcoin from './modules/fetch-bitcoin.js'
 import initFuncionamento from './modules/funcionamento.js'
 import initMenuMobile from './modules/menu-mobile.js'
@@ -28,6 +28,7 @@ tooltip.init()
 initDropdown()
 initMenuMobile()
 initFuncionamento()
-iniFetchAnimais()
 iniFetchBitcoin()
 initAnimaScroll()
+
+fetchAnimais('../../animais.json', '.numeros-grid')
