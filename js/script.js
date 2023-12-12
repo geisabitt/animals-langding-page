@@ -6,12 +6,13 @@ import iniFetchBitcoin from './modules/fetch-bitcoin.js'
 import initFuncionamento from './modules/funcionamento.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initModal from './modules/modal.js'
-import initScrollSuave from './modules/scroll-suave.js'
+import ScrollSuave from './modules/scroll-suave.js'
 import initTabNav from './modules/tab-nav.js'
 import initTooltip from './modules/tooltip.js'
 
-initScrollSuave()
-initAnimaScroll()
+const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]')
+scrollSuave.init()
+
 initTabNav()
 initAccordion()
 initModal()
@@ -21,3 +22,4 @@ initMenuMobile()
 initFuncionamento()
 iniFetchAnimais()
 iniFetchBitcoin()
+initAnimaScroll()
