@@ -5,7 +5,7 @@ import iniFetchAnimais from './modules/fetch-animais.js'
 import iniFetchBitcoin from './modules/fetch-bitcoin.js'
 import initFuncionamento from './modules/funcionamento.js'
 import initMenuMobile from './modules/menu-mobile.js'
-import initModal from './modules/modal.js'
+import Modal from './modules/modal.js'
 import ScrollSuave from './modules/scroll-suave.js'
 import TabNav from './modules/tab-nav.js'
 import initTooltip from './modules/tooltip.js'
@@ -18,8 +18,9 @@ accordion.init()
 
 const tabnav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section')
 tabnav.init()
+const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]')
+modal.init()
 
-initModal()
 initTooltip()
 initDropdown()
 initMenuMobile()
