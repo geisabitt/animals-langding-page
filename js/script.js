@@ -2,7 +2,7 @@ import Accordion from './modules/accordion.js'
 import initAnimaScroll from './modules/anima-scroll.js'
 import initDropdown from './modules/dropdown-menu.js'
 import fetchAnimais from './modules/fetch-animais.js'
-import iniFetchBitcoin from './modules/fetch-bitcoin.js'
+import fetchBitcoin from './modules/fetch-bitcoin.js'
 import initFuncionamento from './modules/funcionamento.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import Modal from './modules/modal.js'
@@ -28,7 +28,7 @@ tooltip.init()
 initDropdown()
 initMenuMobile()
 initFuncionamento()
-iniFetchBitcoin()
+fetchBitcoin('https://blockchain.info/ticker', '.btc-preco')
 initAnimaScroll()
 
 fetchAnimais('../../animais.json', '.numeros-grid')
