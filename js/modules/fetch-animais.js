@@ -1,4 +1,4 @@
-import initAnimaNumeros from './anima-numeros.js'
+import AnimaNumeros from './anima-numeros.js'
 
 export default function iniFetchAnimais() {
   // não precisa colocar o local da pasta apenas o nome do json
@@ -24,7 +24,8 @@ export default function iniFetchAnimais() {
         numerosGrid.appendChild(divAnimal)
       })
       // executa a animação dos numeros
-      initAnimaNumeros()
+      const animaNumeros = new AnimaNumeros('[data-numero]', '.numeros', 'ativo')
+      animaNumeros.init()
     } catch (error) {
       console.log(error)
       numerosGrid.innerText = `Erro ao carregar animais`
