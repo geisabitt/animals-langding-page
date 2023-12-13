@@ -1,11 +1,11 @@
 import Accordion from './modules/accordion.js'
-import initAnimaScroll from './modules/anima-scroll.js'
 import initDropdown from './modules/dropdown-menu.js'
 import fetchAnimais from './modules/fetch-animais.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
 import initFuncionamento from './modules/funcionamento.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import Modal from './modules/modal.js'
+import ScrollAnima from './modules/scroll-anima.js'
 import ScrollSuave from './modules/scroll-suave.js'
 import TabNav from './modules/tab-nav.js'
 import Tooltip from './modules/tooltip.js'
@@ -25,10 +25,12 @@ modal.init()
 const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]')
+scrollAnima.init()
+
 initDropdown()
 initMenuMobile()
 initFuncionamento()
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco')
-initAnimaScroll()
 
 fetchAnimais('../../animais.json', '.numeros-grid')
