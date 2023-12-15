@@ -39,4 +39,4 @@ funcionamento.init()
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco')
 
-fetchAnimais('../../animais.json', '.numeros-grid')
+fetchAnimais('./animais.json', '.numeros-grid')
