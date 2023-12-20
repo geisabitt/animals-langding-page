@@ -7,6 +7,7 @@ import MenuMobile from './modules/menu-mobile.js'
 import Modal from './modules/modal.js'
 import ScrollAnima from './modules/scroll-anima.js'
 import ScrollSuave from './modules/scroll-suave.js'
+import SlideNav from './modules/slide.js'
 import TabNav from './modules/tab-nav.js'
 import Tooltip from './modules/tooltip.js'
 
@@ -40,3 +41,9 @@ funcionamento.init()
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco')
 
 fetchAnimais('./animais.json', '.numeros-grid')
+
+const slide = new SlideNav('.slide', '.slide-wrapper')
+slide.init()
+
+//slide.addControl()
+slide.addControl('.custom-controls')
