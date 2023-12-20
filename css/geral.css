@@ -10,18 +10,6 @@ dl {
   margin: 0px;
   padding: 0px;
 }
-html.textomaior {
-  font-size: 150%;
-}
-.letra-grande {
-  font-size: 40px;
-}
-.azul {
-  background-color: aquamarine;
-}
-.vermelho {
-  background-color: brown;
-}
 
 img {
   display: block;
@@ -37,6 +25,7 @@ body {
   color: #222;
   -webkit-font-smoothing: antialiased;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
@@ -61,7 +50,7 @@ body {
   margin-right: 10px;
   color: #222;
   text-decoration: none;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.875rem;
@@ -80,7 +69,7 @@ body {
 }
 
 .titulo {
-  font-family: "Playfair Display SC", georgia;
+  font-family: 'Playfair Display SC', georgia;
   font-size: 6rem;
   line-height: 1;
   font-weight: 400;
@@ -89,7 +78,7 @@ body {
 }
 
 .animais h2 {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -98,7 +87,7 @@ body {
 }
 
 .animais h2::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 40px;
   height: 10px;
@@ -117,9 +106,11 @@ body {
   overflow-y: scroll;
   grid-column: 2;
 }
+
 .animais-lista li {
   cursor: pointer;
 }
+
 .animais-lista::-webkit-scrollbar {
   width: 18px;
 }
@@ -147,7 +138,7 @@ body {
 }
 
 .faq-lista dt {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
@@ -155,7 +146,7 @@ body {
 }
 
 .faq-lista dt::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 20px;
   height: 10px;
@@ -183,7 +174,7 @@ body {
 }
 
 .dados li::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 20px;
   height: 10px;
@@ -199,7 +190,7 @@ body {
 
 .copy p {
   padding: 20px;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: bold;
 }
 
@@ -225,7 +216,7 @@ body {
     grid-column: 1 / 3;
   }
   .grid-section h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .menu {
     margin-top: 0px;
@@ -234,30 +225,23 @@ body {
     margin-bottom: 0px;
   }
 }
-.js [data-tab="content"] section {
+
+.js [data-tab='content'] section {
   display: none;
 }
-[data-tab="content"] section.ativo {
+
+[data-tab='content'] section.ativo {
   display: block !important;
-  animation: show 0.5s forwards;
-  /* forwards = ficar no estado final da animação
-  sem esse parametro ele volta para o estado inicial
-  da animação */
 }
-[data-tab="content"] section.ativo.show-right {
-  display: block !important;
+
+[data-tab='content'] section.ativo.show-right {
   animation: show-right 0.5s forwards;
-  /* forwards = ficar no estado final da animação
-  sem esse parametro ele volta para o estado inicial
-  da animação */
 }
-[data-tab="content"] section.ativo.show-down {
-  display: block !important;
+
+[data-tab='content'] section.ativo.show-down {
   animation: show-down 0.5s forwards;
-  /* forwards = ficar no estado final da animação
-  sem esse parametro ele volta para o estado inicial
-  da animação */
 }
+
 @keyframes show-right {
   from {
     opacity: 0;
@@ -268,6 +252,7 @@ body {
     transform: translate3d(0, 0, 0);
   }
 }
+
 @keyframes show-down {
   from {
     opacity: 0;
@@ -279,59 +264,78 @@ body {
   }
 }
 
-.js [data-anime="accordion"] dd {
+.js [data-anime='accordion'] dd {
   display: none;
 }
-[data-anime="accordion"] dt::after {
-  content: "⮧";
+
+[data-anime='accordion'] dt::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url('../img/arrow-red.svg') no-repeat center center;
   margin-left: 10px;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
-[data-anime="accordion"] dt.ativo::after {
-  content: "⮥";
-  margin-left: 10px;
+
+[data-anime='accordion'] dt.ativo::after {
+  content: '';
+  transform: rotate(-90deg);
 }
-[data-anime="accordion"] dd.ativo {
+
+[data-anime='accordion'] dd.ativo {
   display: block;
   animation: slideDown 0.5s forwards;
 }
+
 @keyframes slideDown {
   from {
     opacity: 0;
     max-height: 0;
   }
   to {
-    opacity: 1;
     max-height: 200px;
+    opacity: 1;
   }
 }
 
-/*0312 Animação ao Scroll*/
-
-.js [data-anime="scroll"] {
+.js [data-anime='scroll'] {
   opacity: 0;
   transform: translate3d(-30px, 0, 0);
   transition: 0.3s;
 }
-.js [data-anime="scroll"].ativo {
+
+.js [data-anime='scroll'].ativo {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+
 [data-semana]::after {
   display: inline-block;
-  content: "";
+  content: '';
   width: 6px;
   height: 6px;
-  background-color: red;
+  background: #e54;
   border-radius: 50%;
   margin-left: 4px;
   border: 2px solid #000;
 }
+
 [data-semana].aberto::after {
-  background-color: #3f4;
+  background: #3f4;
 }
+
 .btc-preco {
-  background-color: #3f4;
+  background: #3f4;
   padding: 0.2rem 0.5rem;
   font-weight: bold;
   border-radius: 2px;
+}
+
+.arrow-black {
+  background: url('../img/arrow-black.svg') no-repeat center center;
+  display: inline-block;
+  width: 8px;
+  height: 10px;
 }

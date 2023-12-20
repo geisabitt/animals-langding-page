@@ -2,9 +2,6 @@
   position: relative;
 }
 
-/* não deixar espacos entre o item pai e o dropdowm pois isso
-pode fazer com que ele desapareça antes mesmo de poder clicar nos itens filhos */
-
 [data-dropdown] .dropdown-menu {
   display: none;
 }
@@ -12,22 +9,16 @@ pode fazer com que ele desapareça antes mesmo de poder clicar nos itens filhos 
 [data-dropdown]:hover .dropdown-menu,
 [data-dropdown].active .dropdown-menu {
   display: block;
-  /* chama a animação  com o tempo de duração de 0.3 segundos 
-    e o forwards deixa ele na posição final da animação*/
   animation: show-up 0.3s forwards;
 }
 
 @keyframes show-up {
   from {
-    /* ele sai da transparencia 0 */
     opacity: 0;
-    /* e de -30px acima do objeto */
-    transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, 30px, 0);
   }
   to {
-    /* ele passa a ter cor solida */
     opacity: 1;
-    /* e chega na sua posição final */
     transform: translate3d(0, 0, 0);
   }
 }
@@ -41,16 +32,24 @@ pode fazer com que ele desapareça antes mesmo de poder clicar nos itens filhos 
 }
 
 .dropdown-menu::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: -10px;
-  width: 0;
-  height: 0;
+  width: 0px;
+  height: 0px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #e54;
 }
+
 .dropdown-menu li a:hover {
   color: white;
+}
+
+@media (max-width: 700px) {
+  [data-dropdown] .dropdown-menu {
+    display: block;
+    animation: show-up 0.3s forwards;
+  }
 }
